@@ -22,14 +22,15 @@ namespace MegaActionBattleQuest
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        ContentManager myContent;
 
-        Screens.Screen currentScreen;
+        Screens.GameScreen currentScreen;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
+            myContent = Content;
         }
 
         /// <summary>
@@ -42,8 +43,13 @@ namespace MegaActionBattleQuest
         {
             // TODO: Add your initialization logic here
 
-            currentScreen = new Screens.GameScreen(); //TODO: Remove this once you have a working menu system. 
+            // Create a new SpriteBatch, which can be used to draw textures.
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            currentScreen = new Screens.GameScreen(spriteBatch, myContent); //TODO: Remove this once you have a working menu system. 
 
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -54,8 +60,7 @@ namespace MegaActionBattleQuest
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            
 
             // TODO: use this.Content to load your game content here
         }
@@ -82,7 +87,7 @@ namespace MegaActionBattleQuest
 
             // TODO: Add your update logic here
 
-            currentScreen.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+            //currentScreen.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
             base.Update(gameTime);
         }

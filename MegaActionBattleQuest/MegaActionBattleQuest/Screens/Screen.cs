@@ -8,8 +8,8 @@ namespace MegaActionBattleQuest.Screens
     class Screen
     {
 
-        public void Update(float elapsedTime) { }
-        public void Draw(float elapsedTime)  { }
+       // public void Update(float elapsedTime) { }
+        //public void Draw(float elapsedTime)  { }
 
     }
 }

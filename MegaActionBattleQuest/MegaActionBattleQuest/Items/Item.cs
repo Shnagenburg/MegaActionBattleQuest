@@ -12,8 +12,8 @@ namespace MegaActionBattleQuest.Items
     class BaseItem
     {
 
-        public string name { get; }
-        public int value { get; }
+        public string name { get {return name;} }
+        public int value { get { return value; } }
 
         Sprite sprite;
 
