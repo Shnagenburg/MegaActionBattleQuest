@@ -89,7 +89,7 @@ namespace MegaActionBattleQuest
         }
 
 
-        public void setAnimation(bool isTrueOrFalse, MovementDirections myDirection = MovementDirections.Down)
+        public void setAnimation(bool isTrueOrFalse, MovementDirections myDirection)
         {
             
             isAnimating = isTrueOrFalse;

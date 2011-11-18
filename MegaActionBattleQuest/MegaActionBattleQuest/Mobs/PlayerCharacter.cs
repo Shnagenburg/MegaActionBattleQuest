@@ -90,7 +90,7 @@ namespace MegaActionBattleQuest.Mobs
             {
                 isMoving = true;
                 moveDirection = myDirection;
-                sprite.setAnimation(true);
+                sprite.setAnimation(true, myDirection);
 
                 switch (myDirection)
                 {
