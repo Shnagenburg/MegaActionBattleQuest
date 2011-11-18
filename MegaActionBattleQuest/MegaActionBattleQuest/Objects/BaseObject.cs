@@ -7,7 +7,7 @@ namespace MegaActionBattleQuest.Objects
 {
     class BaseObject
     {
-        Sprite sprite;
+        protected Sprite sprite;
 
         public void draw(float elapsedtime)
         {

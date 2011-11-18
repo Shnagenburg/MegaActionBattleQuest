@@ -17,10 +17,10 @@ namespace MegaActionBattleQuest.Levels
         const int levelTileWidth = 20;
         const int levelTileHeight = 15;
 
-        const int tileSize = 32;
+        public int tileSize = 32;
         const int spriteSheetPadding = 1;
 
-        const int gameBorder = 8;
+        public int gameBorder;
 
         int[,] baseLayerMap; //the environment
         int[,] obstructionLayerMap; //flags for walls and water and shit the PC can't walk through (this layer is purely for collision detection)
@@ -28,8 +28,9 @@ namespace MegaActionBattleQuest.Levels
         
         public IList<Objects.BaseObject> mapObjects;
 
-        public Level(SpriteBatch spriteBatch, ContentManager myContent)
+        public Level(SpriteBatch spriteBatch, ContentManager myContent, int gameBorder)
         {
+            this.gameBorder = gameBorder;
             baseLayerTexture = myContent.Load<Texture2D>("baselayer");
             this.spriteBatch = spriteBatch;
             baseLayerMap = new int[,] { {01,01,01,01,01,12,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
@@ -41,10 +42,10 @@ namespace MegaActionBattleQuest.Levels
                                         {01,06,15,00,00,02,01,01,01,01,12,00,02,01,01,12,00,00,00,00},
                                         {01,01,12,00,00,02,01,01,01,01,12,00,04,17,01,12,00,00,00,00},
                                         {01,01,12,00,00,04,13,13,13,13,03,00,00,04,13,03,00,00,00,00},
-                                        {13,13,03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
-                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
-                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
-                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
+                                        {13,13,03,00,00,00,00,00,00,00,00,00,00,00,16,14,14,15,00,00},
+                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,02,18,17,12,00,00},
+                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,02,06,05,12,00,00},
+                                        {00,00,00,00,00,00,00,00,00,00,00,00,00,00,04,13,13,03,00,00},
                                         {00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},
                                         {00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00},};
 
@@ -86,7 +87,12 @@ namespace MegaActionBattleQuest.Levels
                 }
             }
 
+
+            //Draw the obstruction layer
+
             //Draw the interactive layer
+
+            //Draw the doodad layer
         }
 
         Rectangle getSourceRect(int sourceID)

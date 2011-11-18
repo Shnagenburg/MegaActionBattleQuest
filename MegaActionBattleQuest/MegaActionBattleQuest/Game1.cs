@@ -26,6 +26,9 @@ namespace MegaActionBattleQuest
 
         Screens.GameScreen currentScreen;
 
+        KeyboardState currentKeyState;
+        KeyboardState prevKeyState;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -81,13 +84,19 @@ namespace MegaActionBattleQuest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+
+            currentKeyState = Keyboard.GetState();
+
+            if (currentKeyState.IsKeyDown(Keys.Escape)) this.Exit();
+
+            currentScreen.ProcessInput(currentKeyState, prevKeyState);
+
 
             // TODO: Add your update logic here
+            currentScreen.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 
-            //currentScreen.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
+
+            prevKeyState = currentKeyState;
 
             base.Update(gameTime);
         }

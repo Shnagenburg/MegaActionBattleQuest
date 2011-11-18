@@ -14,7 +14,12 @@ namespace MegaActionBattleQuest.Mobs
 
         int level;
 
-        Sprite sprite;
+        public bool isMoving;
+        protected float moveSpeed;
+
+        protected MovementDirections moveDirection;
+
+        protected Sprite sprite;
 
         public void draw(float elapsedtime)
         {
